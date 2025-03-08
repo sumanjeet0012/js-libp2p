@@ -139,27 +139,27 @@ jobs:
   #         token: ${{ secrets.CODECOV_TOKEN }}
 
   # test-webkit:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-      - uses: ipfs/aegir/actions/cache-node-modules@main
-        with:
-          directories: ${{ env.CACHE_DIRS }}
-      # https://github.com/actions/runner-images/issues/9733#issuecomment-2074590278
-      - run: |
-          sudo rm /etc/apt/sources.list.d/microsoft-prod.list
-          sudo apt-get update
-      - run: npx playwright install-deps
-      - run: npm run --if-present test:webkit
-      - uses: codecov/codecov-action@0565863a31f2c772f9f0395002a31e3f06189574 # v5.4.0
-        with:
-          flags: webkit
-          files: .coverage/*,packages/*/.coverage/*
-          token: ${{ secrets.CODECOV_TOKEN }}
+    # needs: build
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - uses: actions/checkout@v4
+    #   - uses: actions/setup-node@v4
+    #     with:
+    #       node-version: lts/*
+    #   - uses: ipfs/aegir/actions/cache-node-modules@main
+    #     with:
+    #       directories: ${{ env.CACHE_DIRS }}
+    #   # https://github.com/actions/runner-images/issues/9733#issuecomment-2074590278
+    #   - run: |
+    #       sudo rm /etc/apt/sources.list.d/microsoft-prod.list
+    #       sudo apt-get update
+    #   - run: npx playwright install-deps
+    #   - run: npm run --if-present test:webkit
+    #   - uses: codecov/codecov-action@0565863a31f2c772f9f0395002a31e3f06189574 # v5.4.0
+    #     with:
+    #       flags: webkit
+    #       files: .coverage/*,packages/*/.coverage/*
+    #       token: ${{ secrets.CODECOV_TOKEN }}
 
   test-electron-main:
     needs: build
