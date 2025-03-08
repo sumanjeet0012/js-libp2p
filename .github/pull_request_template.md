@@ -15,7 +15,7 @@ Related https://github.com/libp2p/js-libp2p/issues/ABCD.
 Fixes https://github.com/libp2p/js-libp2p/issues/XYZ.
 -->
 
-## Notes & open questions
+## Notes & open question
 
 <!--
 Any notes, remarks or open questions you have to make about the PR which don't need to go into the final commit message.
